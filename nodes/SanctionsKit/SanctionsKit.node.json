@@ -1,0 +1,20 @@
+{
+  "node": "n8n-nodes-sanctionskit.sanctionsKit",
+  "nodeVersion": "1.0",
+  "codexVersion": "1.0",
+  "categories": [
+    "Miscellaneous"
+  ],
+  "resources": {
+    "credentialDocumentation": [
+      {
+        "url": "https://www.sanctionskit.com/docs/quickstart"
+      }
+    ],
+    "primaryDocumentation": [
+      {
+        "url": "https://www.sanctionskit.com/docs"
+      }
+    ]
+  }
+}

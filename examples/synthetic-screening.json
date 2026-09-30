@@ -1,0 +1,99 @@
+{
+  "name": "SanctionsKit synthetic screening and evidence",
+  "nodes": [
+    {
+      "id": "manual-trigger",
+      "name": "Run synthetic example",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        260,
+        300
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "screen",
+      "name": "Screen fictional subject",
+      "type": "n8n-nodes-sanctionskit.sanctionsKit",
+      "typeVersion": 1,
+      "position": [
+        500,
+        300
+      ],
+      "parameters": {
+        "resource": "screening",
+        "operation": "create",
+        "name": "Alex Example",
+        "entityType": "person",
+        "coverage": "sandbox",
+        "idempotencyKey": "={{ \"n8n-demo:\" + $execution.id + \":\" + $itemIndex }}",
+        "options": {
+          "reference": "synthetic-n8n-example",
+          "retention": "standard"
+        },
+        "simplify": false
+      }
+    },
+    {
+      "id": "evidence",
+      "name": "Retrieve synthetic evidence",
+      "type": "n8n-nodes-sanctionskit.sanctionsKit",
+      "typeVersion": 1,
+      "position": [
+        750,
+        300
+      ],
+      "parameters": {
+        "resource": "screening",
+        "operation": "getEvidence",
+        "screeningId": "={{ $json.id }}"
+      }
+    },
+    {
+      "id": "notice",
+      "name": "Synthetic sandbox only",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        260,
+        60
+      ],
+      "parameters": {
+        "content": "## Synthetic sandbox example\nSelect your sandbox credential on both SanctionsKit nodes. Alex Example is fictional. This workflow does not use live sanctions data or make an approval decision. Preserve evidence and interpretation limits. Production requires paid access and explicit coverage.",
+        "width": 730,
+        "height": 170
+      }
+    }
+  ],
+  "connections": {
+    "Run synthetic example": {
+      "main": [
+        [
+          {
+            "node": "Screen fictional subject",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Screen fictional subject": {
+      "main": [
+        [
+          {
+            "node": "Retrieve synthetic evidence",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "id": "sanctionsKitSyntheticExample"
+}

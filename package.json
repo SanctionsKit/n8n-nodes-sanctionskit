@@ -1,0 +1,70 @@
+{
+  "name": "n8n-nodes-sanctionskit",
+  "version": "0.1.0",
+  "description": "SanctionsKit sanctions screening, source availability, approved policies, and retained evidence for n8n workflows.",
+  "license": "MIT",
+  "homepage": "https://www.sanctionskit.com/",
+  "keywords": [
+    "n8n-community-node-package",
+    "sanctionskit",
+    "sanctions-screening",
+    "ofac",
+    "compliance",
+    "watchlist"
+  ],
+  "author": {
+    "name": "SanctionsKit",
+    "email": "support@sanctionskit.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SanctionsKit/n8n-nodes-sanctionskit.git"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "prepublishOnly": "npm run check",
+    "test": "npm run build && node --test tests/*.test.cjs",
+    "check": "npm run lint && npm test",
+    "prepack": "npm run build"
+  },
+  "files": [
+    "dist",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/SanctionsKitApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/SanctionsKit/SanctionsKit.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "0.50.3",
+    "ajv": "^8.17.1",
+    "eslint": "9.32.0",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "bugs": {
+    "url": "https://github.com/SanctionsKit/n8n-nodes-sanctionskit/issues"
+  },
+  "engines": {
+    "node": ">=22.16"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
