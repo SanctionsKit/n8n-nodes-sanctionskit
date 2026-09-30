@@ -24,7 +24,3 @@ jobs:
       - run: npm pack --dry-run
       - name: Publish with provenance
         run: npm publish --provenance --access public
-        env:
-          # Leave unset after configuring npm trusted publishing for publish.yml.
-          # First publication may require a narrowly scoped granular token.
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
