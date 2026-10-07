@@ -8,7 +8,7 @@ Connect [SanctionsKit](https://www.sanctionskit.com/) to n8n for sanctions scree
 
 For self-hosted n8n, install `n8n-nodes-sanctionskit` under **Settings → Community Nodes**. See [n8n's community-node installation guide](https://docs.n8n.io/integrations/community-nodes/installation-and-management/gui-installation).
 
-n8n Cloud availability depends on n8n verification. This package does not claim verified status.
+**Verification update — 6 October 2026:** n8n has approved `n8n-nodes-sanctionskit` for its verified-node program. Publication through n8n and the dedicated integration page are still pending. Until the release is confirmed, use the self-hosted installation instructions above.
 
 ## Credentials
 
@@ -61,6 +61,7 @@ The node uses programmatic execution to validate environment/coverage and idempo
 
 ## Resources
 
+- [Sanctions screening in n8n: synthetic workflow and evidence walkthrough](https://www.sanctionskit.com/integrations/n8n)
 - [SanctionsKit API documentation](https://www.sanctionskit.com/docs)
 - [Sanctions screening API quickstart](https://www.sanctionskit.com/docs/quickstart)
 - [OpenAPI contract](https://www.sanctionskit.com/openapi.json)
